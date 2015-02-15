@@ -1,0 +1,18 @@
+D:\Tikhonov\tests\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe.config
+D:\Tikhonov\tests\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+D:\Tikhonov\tests\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+D:\Tikhonov\tests\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form1.resources
+D:\Tikhonov\tests\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+D:\Tikhonov\tests\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.Cache
+D:\Tikhonov\tests\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+D:\Tikhonov\tests\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
+D:\Tikhonov\tests\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\vigelfortz\Documents\GitHub\New folder\bin\Release\WindowsFormsApplication1.exe.config
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Release\WindowsFormsApplication1.exe
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Release\WindowsFormsApplication1.pdb
+C:\Users\vigelfortz\Documents\GitHub\New folder\bin\Release\WindowsFormsApplication1.exe
+C:\Users\vigelfortz\Documents\GitHub\New folder\bin\Release\WindowsFormsApplication1.pdb
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Release\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Release\WindowsFormsApplication1.Form1.resources
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.Cache

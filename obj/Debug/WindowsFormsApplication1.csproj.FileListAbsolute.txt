@@ -1,0 +1,21 @@
+C:\Users\vigelfortz\Documents\GitHub\TestApp\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\vigelfortz\Documents\GitHub\TestApp\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\vigelfortz\Documents\GitHub\TestApp\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\vigelfortz\Documents\GitHub\TestApp\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\vigelfortz\Documents\GitHub\TestApp\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\vigelfortz\Documents\GitHub\TestApp\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\vigelfortz\Documents\GitHub\TestApp\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\vigelfortz\Documents\GitHub\TestApp\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\vigelfortz\Documents\GitHub\TestApp\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\vigelfortz\Documents\GitHub\New folder\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\vigelfortz\Documents\GitHub\New folder\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\vigelfortz\Documents\GitHub\New folder\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\vigelfortz\Documents\GitHub\New folder\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\vigelfortz\Desktop\MyProjects\searcher\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\vigelfortz\Desktop\MyProjects\searcher\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\vigelfortz\Desktop\MyProjects\searcher\obj\Debug\WindowsFormsApplication1.pdb
