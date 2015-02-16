@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
             _searcher.NotifyAccessError += AccessErrorHandler;//Ошибка доступа к файлу
             _searcher.NotifyFileDeleted += SearcherOnNotifyFileDeleted;//Удалён файл
             _searcher.NotifyFileRenamed += SearcherOnNotifyFileRenamed;//Файл переименован
-            _searcher.FoundedFilesNumberChanged += SearcherOnFoundedFilesNumberChangedUp;//Кол-во найденных файлов увеличилось на 1
+            _searcher.FoundedFilesNumberChangedUp += SearcherOnFoundedFilesNumberChangedUp;//Кол-во найденных файлов увеличилось на 1
             _searcher.FileFounded += AddFile;//Найден файл
             _searcher.NotifyArgumentException += ArgumentExceptionCatched;//Введены неправильные аргументы
             _searcher.UpdateTime += SearcherOnUpdateTime;//Тик таймера(раз в секунду)
@@ -68,12 +68,7 @@ namespace WindowsFormsApplication1
         }
         private void SearcherOnFoundedFilesNumberChangedDown(object sender, EventArgs eventArgs)
         {
-            Action changeNumber = () =>
-            {
-                --_numberOfFoundedFiles;
-                numberOfParsedFiles.Text = String.Format("Найдено {0} файлов", _numberOfFoundedFiles);
-            };
-            CurrentFileName.BeginInvoke(changeNumber);
+               numberOfParsedFiles.Text = String.Format("Найдено {0} файлов", --_numberOfFoundedFiles);
         }
         private void SearcherOnNotifyFileRenamed(object sender, string[] strings)
         {
@@ -98,6 +93,7 @@ namespace WindowsFormsApplication1
                         {
                             AddFile(this,strings[1]);
                             var nodeToDelete = FilesTreeView.Nodes.Find(strings[0] + '\\', true);
+                            SearcherOnFoundedFilesNumberChangedDown(this, new EventArgs());
                             FilesTreeView.Nodes.Remove(nodeToDelete[0]);
                         }
                     }
@@ -125,7 +121,7 @@ namespace WindowsFormsApplication1
                     }
                 }
             };
-            FilesTreeView.BeginInvoke(deleteFileFromTree);
+            FilesTreeView.Invoke(deleteFileFromTree);
 
         }
 
@@ -149,7 +145,7 @@ namespace WindowsFormsApplication1
                             lastNode = nodes[0];
                     }
             };
-            FilesTreeView.BeginInvoke(addFileToTreeAction);
+            FilesTreeView.Invoke(addFileToTreeAction);
         }
 
         private void SearcherOnUpdateTime(object sender, int i)
@@ -159,7 +155,7 @@ namespace WindowsFormsApplication1
 
                 timerLabel.Text = String.Format("На поиск затрачено {0} секунд", i);
             };
-            timerLabel.BeginInvoke(updateTime);
+            timerLabel.Invoke(updateTime);
         }
 
         private void ArgumentExceptionCatched(object sender, ArgumentException e)

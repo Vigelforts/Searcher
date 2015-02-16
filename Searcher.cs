@@ -32,7 +32,8 @@ namespace WindowsFormsApplication1
         public event EventHandler<ArgumentException> NotifyArgumentException;//Неверный аргумент
         public event EventHandler<string> NotifyFileDeleted;//Файл удален
         public event EventHandler<string[]> NotifyFileRenamed; //Файл переименован
-        public event EventHandler FoundedFilesNumberChanged;//Число найденных файлов увеличено
+        public event EventHandler FoundedFilesNumberChangedUp;//Число найденных файлов увеличено
+        public event EventHandler FoundedFilesNumberChangedDown;
         public event EventHandler<int> UpdateTime;//Тик таймера
         public void Initialiaze(String root, String nameTemplate, String text)
         {
@@ -83,7 +84,6 @@ namespace WindowsFormsApplication1
                 _watcher.Renamed += WatcherOnRenamed;
                 _watcher.Deleted += WatcherOnDeleted;
                 _watcher.Created += WatcherOnCreated;
-                _watcher.Changed += WatcherOnChanged;
             }
             catch (ArgumentException e)
             {
@@ -123,36 +123,16 @@ namespace WindowsFormsApplication1
 
         private void WatcherOnCreated(object sender, FileSystemEventArgs e)
         {
-            if (FoundedFilesNumberChanged != null) FoundedFilesNumberChanged.Invoke(this, new EventArgs());
+            if (FoundedFilesNumberChangedUp != null) FoundedFilesNumberChangedUp.Invoke(this, new EventArgs());
             if (FileFounded != null) FileFounded.Invoke(this, e.FullPath);
         }
 
         private void WatcherOnDeleted(object sender, FileSystemEventArgs e)
         {
-            if (FoundedFilesNumberChanged != null) FoundedFilesNumberChanged.Invoke(this, new EventArgs());
             if (NotifyFileDeleted != null) NotifyFileDeleted.Invoke(this, e.FullPath);
         }
 
-        private void WatcherOnChanged(object sender, FileSystemEventArgs fileSystemEventArgs)
-        {
-            if (CurrentFileChanged != null) CurrentFileChanged.Invoke(this, fileSystemEventArgs.FullPath);
-            try
-            {
-                using (StreamReader str = new StreamReader(fileSystemEventArgs.FullPath))
-                {
-                    var content = str.ReadToEnd();
 
-                    if (!content.Contains(_textTemplate))
-                    {
-                        NotifyFileDeleted.Invoke(this, fileSystemEventArgs.FullPath);
-                    }
-                }
-            }
-            catch (UnauthorizedAccessException e)
-            {
-                if (NotifyAccessError != null) NotifyAccessError.Invoke(this,e);
-            }
-        }
 
         private void StartSearch(String directory, String template, String text)
             //Функция рекурсивно спускается по всем директориям и ищет в них файлы по заданым критериям
@@ -177,8 +157,8 @@ namespace WindowsFormsApplication1
                             CurrentFileChanged(this, file);
                         if (text == "")
                         {
-                            if (FoundedFilesNumberChanged != null)
-                                FoundedFilesNumberChanged.Invoke(this, new EventArgs());
+                            if (FoundedFilesNumberChangedUp != null)
+                                FoundedFilesNumberChangedUp.Invoke(this, new EventArgs());
                             if (FileFounded != null) FileFounded.Invoke(this, file);
                         }
                         else
@@ -190,7 +170,7 @@ namespace WindowsFormsApplication1
                                     var content = stringReader.ReadToEnd();
                                     if (content.Contains(text))
                                     {
-                                        FoundedFilesNumberChanged.Invoke(this, new EventArgs());
+                                        FoundedFilesNumberChangedUp.Invoke(this, new EventArgs());
                                         FileFounded.Invoke(this, file);
                                     }
                                 }
