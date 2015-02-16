@@ -150,14 +150,12 @@
             // 
             // CurrentFileName
             // 
-            this.CurrentFileName.AutoSize = true;
             this.CurrentFileName.Location = new System.Drawing.Point(13, 658);
             this.CurrentFileName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.CurrentFileName.MinimumSize = new System.Drawing.Size(500, 40);
             this.CurrentFileName.Name = "CurrentFileName";
-            this.CurrentFileName.Size = new System.Drawing.Size(500, 40);
+            this.CurrentFileName.Size = new System.Drawing.Size(500, 50);
             this.CurrentFileName.TabIndex = 2;
-            this.CurrentFileName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // numberOfParsedFiles
             // 
