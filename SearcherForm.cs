@@ -73,7 +73,7 @@ namespace WindowsFormsApplication1
                 --_numberOfFoundedFiles;
                 numberOfParsedFiles.Text = String.Format("Найдено {0} файлов", _numberOfFoundedFiles);
             };
-            CurrentFileName.Invoke(changeNumber);
+            CurrentFileName.BeginInvoke(changeNumber);
         }
         private void SearcherOnNotifyFileRenamed(object sender, string[] strings)
         {

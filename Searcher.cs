@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1
         private void TimerOnTick(object sender, EventArgs eventArgs)
         {
             ++_passedTime;
-            UpdateTime?.Invoke(this,_passedTime);
+            if (UpdateTime != null) UpdateTime(this,_passedTime);
         }
 
 
@@ -87,7 +87,7 @@ namespace WindowsFormsApplication1
             }
             catch (ArgumentException e)
             {
-                NotifyArgumentException?.Invoke(this, e);
+                if (NotifyArgumentException != null) NotifyArgumentException.Invoke(this, e);
             }
         }
 
@@ -105,36 +105,37 @@ namespace WindowsFormsApplication1
                     var content = stringReader.ReadToEnd();
                     if (content.Contains(_textTemplate))
                     {
-                        NotifyFileRenamed?.Invoke(this, new string[] { e.OldFullPath, e.FullPath });
+                        if (NotifyFileRenamed != null)
+                            NotifyFileRenamed.Invoke(this, new string[] { e.OldFullPath, e.FullPath });
                     }
                     else
                     {
-                        NotifyFileDeleted?.Invoke(this, e.OldFullPath);
+                        if (NotifyFileDeleted != null) NotifyFileDeleted.Invoke(this, e.OldFullPath);
                     }
                 }
             }
             else
             {
-                NotifyFileDeleted?.Invoke(this,e.OldFullPath);
+                if (NotifyFileDeleted != null) NotifyFileDeleted.Invoke(this,e.OldFullPath);
             }
 
         }
 
         private void WatcherOnCreated(object sender, FileSystemEventArgs e)
         {
-            FoundedFilesNumberChanged?.Invoke(this, new EventArgs());
-            FileFounded?.Invoke(this, e.FullPath);
+            if (FoundedFilesNumberChanged != null) FoundedFilesNumberChanged.Invoke(this, new EventArgs());
+            if (FileFounded != null) FileFounded.Invoke(this, e.FullPath);
         }
 
         private void WatcherOnDeleted(object sender, FileSystemEventArgs e)
         {
-            FoundedFilesNumberChanged?.Invoke(this, new EventArgs());
-            NotifyFileDeleted?.Invoke(this, e.FullPath);
+            if (FoundedFilesNumberChanged != null) FoundedFilesNumberChanged.Invoke(this, new EventArgs());
+            if (NotifyFileDeleted != null) NotifyFileDeleted.Invoke(this, e.FullPath);
         }
 
         private void WatcherOnChanged(object sender, FileSystemEventArgs fileSystemEventArgs)
         {
-            CurrentFileChanged?.Invoke(this, fileSystemEventArgs.FullPath);
+            if (CurrentFileChanged != null) CurrentFileChanged.Invoke(this, fileSystemEventArgs.FullPath);
             try
             {
                 using (StreamReader str = new StreamReader(fileSystemEventArgs.FullPath))
@@ -143,15 +144,14 @@ namespace WindowsFormsApplication1
 
                     if (!content.Contains(_textTemplate))
                     {
-                        NotifyFileDeleted?.Invoke(this, fileSystemEventArgs.FullPath);
+                        NotifyFileDeleted.Invoke(this, fileSystemEventArgs.FullPath);
                     }
                 }
             }
             catch (UnauthorizedAccessException e)
             {
-                NotifyAccessError?.Invoke(this,e);
+                if (NotifyAccessError != null) NotifyAccessError.Invoke(this,e);
             }
-
         }
 
         private void StartSearch(String directory, String template, String text)
@@ -177,8 +177,9 @@ namespace WindowsFormsApplication1
                             CurrentFileChanged(this, file);
                         if (text == "")
                         {
-                            FoundedFilesNumberChanged?.Invoke(this, new EventArgs());
-                            FileFounded?.Invoke(this, file);
+                            if (FoundedFilesNumberChanged != null)
+                                FoundedFilesNumberChanged.Invoke(this, new EventArgs());
+                            if (FileFounded != null) FileFounded.Invoke(this, file);
                         }
                         else
                         {
@@ -189,8 +190,8 @@ namespace WindowsFormsApplication1
                                     var content = stringReader.ReadToEnd();
                                     if (content.Contains(text))
                                     {
-                                        FoundedFilesNumberChanged?.Invoke(this, new EventArgs());
-                                        FileFounded?.Invoke(this, file);
+                                        FoundedFilesNumberChanged.Invoke(this, new EventArgs());
+                                        FileFounded.Invoke(this, file);
                                     }
                                 }
                             }
@@ -204,7 +205,7 @@ namespace WindowsFormsApplication1
             }
             catch (UnauthorizedAccessException e)
             {
-                NotifyAccessError?.Invoke(this, e);
+                NotifyAccessError.Invoke(this, e);
             }
             catch (ThreadAbortException)
             {
