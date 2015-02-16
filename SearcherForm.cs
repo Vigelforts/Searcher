@@ -8,12 +8,12 @@ using System.Xml.Serialization;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class SearcherForm : Form
     {
         private readonly Searcher _searcher;//Экземпляр поисковика
         private Thread _searchThread;//Поток поиска для асинхронности
         private int _numberOfFoundedFiles;//Кол-во найденный файлов
-        public Form1()
+        public SearcherForm()
         {
             
 
@@ -179,7 +179,7 @@ namespace WindowsFormsApplication1
             CurrentFileName.BeginInvoke(changeText);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void StartButtonOn_Click(object sender, EventArgs e)
         {
             
                _searchThread = new Thread(StartSearch);
@@ -204,7 +204,7 @@ namespace WindowsFormsApplication1
             CurrentFileName.BeginInvoke(changeText);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void StopButtonOn_Click(object sender, EventArgs e)
         {
             _searchThread.Abort();//Убиваем поток поиска
             CurrentFileName.Text = "Поиск остановлен";

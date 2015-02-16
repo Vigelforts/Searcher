@@ -46,16 +46,16 @@
   <ItemGroup>
     <Compile Include="CurrentProgramStateStructure.cs" />
     <Compile Include="Searcher.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="SearcherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="SearcherForm.Designer.cs">
+      <DependentUpon>SearcherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="SearcherForm.resx">
+      <DependentUpon>SearcherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.IO;
+using System.Net;
 using System.Threading;
 using Timer = System.Timers.Timer;
 
@@ -181,14 +182,21 @@ namespace WindowsFormsApplication1
                         }
                         else
                         {
-                            using (var stringReader = new StreamReader(file))
+                            try
                             {
-                                var content = stringReader.ReadToEnd();
-                                if (content.Contains(text))
+                                using (var stringReader = new StreamReader(file))
                                 {
-                                    FoundedFilesNumberChanged?.Invoke(this, new EventArgs());
-                                    FileFounded?.Invoke(this, file);
+                                    var content = stringReader.ReadToEnd();
+                                    if (content.Contains(text))
+                                    {
+                                        FoundedFilesNumberChanged?.Invoke(this, new EventArgs());
+                                        FileFounded?.Invoke(this, file);
+                                    }
                                 }
+                            }
+                            catch (System.IO.IOException)
+                            {
+                                continue;//На случай ошибки открытия файла
                             }
                         }
                     }
@@ -202,6 +210,8 @@ namespace WindowsFormsApplication1
             {
                 _timer.Stop();
             }
+            
+
             
         }
     }

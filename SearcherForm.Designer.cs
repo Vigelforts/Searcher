@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Form1
+    partial class SearcherForm
     {
         /// <summary>
         /// Required designer variable.
@@ -81,7 +81,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Остановить поиск";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.StopButtonOn_Click);
             // 
             // StartButton
             // 
@@ -92,7 +92,7 @@
             this.StartButton.TabIndex = 6;
             this.StartButton.Text = "Начать поиск";
             this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.button1_Click);
+            this.StartButton.Click += new System.EventHandler(this.StartButtonOn_Click);
             // 
             // TextInFileBox
             // 
@@ -153,9 +153,11 @@
             this.CurrentFileName.AutoSize = true;
             this.CurrentFileName.Location = new System.Drawing.Point(13, 658);
             this.CurrentFileName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.CurrentFileName.MinimumSize = new System.Drawing.Size(500, 40);
             this.CurrentFileName.Name = "CurrentFileName";
-            this.CurrentFileName.Size = new System.Drawing.Size(0, 19);
+            this.CurrentFileName.Size = new System.Drawing.Size(500, 40);
             this.CurrentFileName.TabIndex = 2;
+            this.CurrentFileName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // numberOfParsedFiles
             // 
@@ -174,7 +176,7 @@
             this.timerLabel.Size = new System.Drawing.Size(0, 19);
             this.timerLabel.TabIndex = 4;
             // 
-            // Form1
+            // SearcherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,7 +190,7 @@
             this.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.Name = "Form1";
+            this.Name = "SearcherForm";
             this.Text = "Поиск файлов";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
